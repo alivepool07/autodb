@@ -1,0 +1,12 @@
+com/autodb/mockdb/provider/FakerValueProvider.class
+com/autodb/mockdb/provider/ValueProvider.class
+com/autodb/mockdb/Entity/WishList.class
+com/autodb/mockdb/config/MockDbProperties$SeedLevel.class
+com/autodb/mockdb/AutoDbApplication.class
+com/autodb/mockdb/config/MockDbProperties.class
+com/autodb/mockdb/provider/RandomValueProvider.class
+com/autodb/mockdb/DataInitializer.class
+com/autodb/mockdb/config/MockDbAutoConfiguration.class
+com/autodb/mockdb/Entity/User.class
+com/autodb/mockdb/Entity/Product.class
+com/autodb/mockdb/seeder/MockDbSeeder.class
