@@ -39,7 +39,11 @@ public class MockDbAutoConfiguration {
             TransactionTemplate tx = new TransactionTemplate(txMgr);
             tx.execute(status -> {
                 MockDbSeeder seeder = new MockDbSeeder(entityManager, props, provider);
-                seeder.seedAll();
+                try {
+                    seeder.seedAll();
+                } catch (IllegalAccessException e) {
+                    throw new RuntimeException(e);
+                }
                 return null;
             });
         };

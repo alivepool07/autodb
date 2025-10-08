@@ -1,8 +1,8 @@
 /home/jyoti/Downloads/Spring /autodb/src/main/java/com/autodb/mockdb/AutoDbApplication.java
-/home/jyoti/Downloads/Spring /autodb/src/main/java/com/autodb/mockdb/DataInitializer.java
 /home/jyoti/Downloads/Spring /autodb/src/main/java/com/autodb/mockdb/Entity/Product.java
 /home/jyoti/Downloads/Spring /autodb/src/main/java/com/autodb/mockdb/Entity/User.java
 /home/jyoti/Downloads/Spring /autodb/src/main/java/com/autodb/mockdb/Entity/WishList.java
+/home/jyoti/Downloads/Spring /autodb/src/main/java/com/autodb/mockdb/MockDbAutoInitializer.java
 /home/jyoti/Downloads/Spring /autodb/src/main/java/com/autodb/mockdb/config/MockDbAutoConfiguration.java
 /home/jyoti/Downloads/Spring /autodb/src/main/java/com/autodb/mockdb/config/MockDbProperties.java
 /home/jyoti/Downloads/Spring /autodb/src/main/java/com/autodb/mockdb/provider/FakerValueProvider.java
