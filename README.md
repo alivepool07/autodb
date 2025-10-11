@@ -54,18 +54,18 @@ target/autodb-<version>.jar
 ```
 Or download the prebuilt JAR from this repository.
 
-###2️⃣ Add AutoDB to Your Project
+### 2️⃣ Add AutoDB to Your Project
 If you’re using Maven, install the JAR to your local repository:
 
 ```xml
 <dependency>
   <groupId>com.autodb</groupId>
   <artifactId>autodb-starter</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.0-SNAPSHOT</version>
 </dependency>
 ```
 
-###3️⃣ Configure AutoDB
+### 3️⃣ Configure AutoDB
 In your project’s src/main/resources/system.properties, add:
 
 ```bash
@@ -93,7 +93,7 @@ AutoDB automatically detects your entities and configures the DB.
 
 @Sagar
 
-#🔮 Coming Soon — AutoDB 2.0
+# 🔮 Coming Soon — AutoDB 2.0
 
 We’re working on a more advanced version featuring:
 Stay tuned — the next version will blur the line between mock and real data. 😉
