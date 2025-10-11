@@ -1,4 +1,4 @@
-# ⚙️ AutoDB — Smart Mock Data Generator for Java & Spring Boot
+# ⚙️ AutoDB — Smart Mock Data Generator for Java & Spring Boot 
 
 <p align="center">
   <img src="https://img.shields.io/badge/Java-17+-red?logo=openjdk" alt="Java Version" />
@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <strong>Automatically generate realistic mock data for your Spring Boot entities — no SQL or JSON seeders required.</strong><br>
+  <strong>Automatically generate realistic mock data for your Spring Boot entities — no SQL or JSON seeders required. For now it's only for springboot projects.</strong><br>
   <em>Powered by DataFaker.</em>
 </p>
 
