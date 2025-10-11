@@ -7,7 +7,7 @@ public class MockDbProperties {
 
     private boolean enabled = true;
     private SeedLevel level = SeedLevel.LOW;
-    private boolean useFaker = false;
+//    private boolean useFaker = false;
 
     public enum SeedLevel { LOW, MID, HIGH }
 
@@ -26,6 +26,6 @@ public class MockDbProperties {
     public SeedLevel getLevel() { return level; }
     public void setLevel(SeedLevel level) { this.level = level; }
 
-    public boolean isUseFaker() { return useFaker; }
-    public void setUseFaker(boolean useFaker) { this.useFaker = useFaker; }
+//    public boolean isUseFaker() { return useFaker; }
+//    public void setUseFaker(boolean useFaker) { this.useFaker = useFaker; }
 }
