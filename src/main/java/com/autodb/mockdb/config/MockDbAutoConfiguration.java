@@ -3,7 +3,8 @@ package com.autodb.mockdb.config;
 import com.autodb.mockdb.provider.FakerValueProvider;
 import com.autodb.mockdb.provider.RandomValueProvider;
 import com.autodb.mockdb.provider.ValueProvider;
-import com.autodb.mockdb.seeder.MockDbSeeder;
+import com.autodb.mockdb.seeder.Seeder;
+import com.autodb.mockdb.seeder.implementation.MockDbSeeder;
 import jakarta.persistence.EntityManager;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -38,7 +39,7 @@ public class MockDbAutoConfiguration {
         return args -> {
             TransactionTemplate tx = new TransactionTemplate(txMgr);
             tx.execute(status -> {
-                MockDbSeeder seeder = new MockDbSeeder(entityManager, props, provider);
+                Seeder seeder = new MockDbSeeder(entityManager, props, provider);
                 try {
                     seeder.seedAll();
                 } catch (IllegalAccessException e) {
