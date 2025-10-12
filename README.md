@@ -1,4 +1,4 @@
-# MockDB Auto Seeder for Spring Boot
+# AutoDB Auto Seeder for Spring Boot
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen.svg)](https://spring.io/projects/spring-boot)
@@ -8,7 +8,7 @@ A zero-configuration library that automatically populates your JPA database with
 
 ## 📋 Table of Contents
 
-- [Why MockDB Auto Seeder?](#why-mockdb-auto-seeder)
+- [Why AutoDB Auto Seeder?](#why-AutoDB-auto-seeder)
 - [Core Concepts](#core-concepts)
 - [Features](#features)
 - [Quick Start](#quick-start)
@@ -17,7 +17,7 @@ A zero-configuration library that automatically populates your JPA database with
 - [Best Practices](#best-practices)
 - [License](#license)
 
-## 🎯 Why MockDB Auto Seeder?
+## 🎯 Why AutoDB Auto Seeder?
 
 In modern application development, especially during early stages, developers need a populated database to:
 - Test functionality with realistic data scenarios
@@ -25,7 +25,7 @@ In modern application development, especially during early stages, developers ne
 - Demonstrate progress to stakeholders
 - Perform integration testing
 
-Manually creating this data is **tedious, repetitive, and time-consuming**. MockDB Auto Seeder eliminates this friction by automatically generating and persisting mock data based on your JPA entity definitions.
+Manually creating this data is **tedious, repetitive, and time-consuming**. AutoDB Auto Seeder eliminates this friction by automatically generating and persisting mock data based on your JPA entity definitions.
 
 ## 🧠 Core Concepts
 
@@ -46,7 +46,7 @@ Creating mock data manually requires:
 4. Generating realistic values
 5. Handling circular dependencies
 
-MockDB Auto Seeder automates all of this.
+AutoDB Auto Seeder automates all of this.
 
 ### How It Solves The Problem
 
@@ -117,7 +117,7 @@ Add to your `pom.xml`:
 
 ```xml
 <dependencies>
-    <!-- MockDB Auto Seeder -->
+    <!-- AutoDB Auto Seeder -->
     <dependency>
         <groupId>com.autodb</groupId>
         <artifactId>autodb</artifactId>
@@ -132,13 +132,13 @@ Create or update `src/main/resources/application.properties`:
 
 ```properties
 # Enable the seeder (default: true)
-mockdb.enabled=true
+AutoDB.enabled=true
 
 # Use Faker for realistic data (default: false)
-mockdb.use-faker=true
+AutoDB.use-faker=true
 
 # Set data volume: LOW (100), MID (500), HIGH (1000)
-mockdb.level=LOW
+AutoDB.level=LOW
 ```
 
 ### 3. Run Your Application
@@ -150,13 +150,13 @@ mvn spring-boot:run
 That's it! Check your console for seeding output:
 
 ```
-[mockdb] seeding mode=LOW count=100
-[mockdb] discovered 5 entities
-[mockdb] processing: Category
-[mockdb] processing: Product
-[mockdb] processing: User
-[mockdb] processing: Order
-[mockdb] seeding completed; persisted counts:
+[AutoDB] seeding mode=LOW count=100
+[AutoDB] discovered 5 entities
+[AutoDB] processing: Category
+[AutoDB] processing: Product
+[AutoDB] processing: User
+[AutoDB] processing: Order
+[AutoDB] seeding completed; persisted counts:
   Category: 100
   Product: 100
   User: 100
@@ -169,16 +169,16 @@ That's it! Check your console for seeding output:
 
 | Property | Description | Default | Options |
 |----------|-------------|---------|---------|
-| `mockdb.enabled` | Master switch to enable/disable the seeder | `true` | `true`, `false` |
-| `mockdb.level` | Volume of data to generate per entity | `LOW` | `LOW`, `MID`, `HIGH` |
-| `mockdb.use-faker` | Use Faker for realistic data vs simple random | `false` | `true`, `false` |
+| `AutoDB.enabled` | Master switch to enable/disable the seeder | `true` | `true`, `false` |
+| `AutoDB.level` | Volume of data to generate per entity | `LOW` | `LOW`, `MID`, `HIGH` |
+| `AutoDB.use-faker` | Use Faker for realistic data vs simple random | `false` | `true`, `false` |
 
 ### YAML Configuration
 
 If you prefer YAML (`application.yml`):
 
 ```yaml
-mockdb:
+AutoDB:
   enabled: true
   level: MID      # 500 records per entity
   use-faker: true # Realistic data
@@ -188,22 +188,22 @@ mockdb:
 
 **Development** (`application-dev.properties`):
 ```properties
-mockdb.enabled=true
-mockdb.level=MID
-mockdb.use-faker=true
+AutoDB.enabled=true
+AutoDB.level=MID
+AutoDB.use-faker=true
 ```
 
 **Production** (`application-prod.properties`):
 ```properties
 # ALWAYS disable in production!
-mockdb.enabled=false
+AutoDB.enabled=false
 ```
 
 **Testing** (`application-test.properties`):
 ```properties
-mockdb.enabled=true
-mockdb.level=LOW
-mockdb.use-faker=false  # Faster without faker
+AutoDB.enabled=true
+AutoDB.level=LOW
+AutoDB.use-faker=false  # Faster without faker
 ```
 
 Activate profiles:
@@ -217,14 +217,14 @@ java -jar app.jar --spring.profiles.active=prod
 
 ## 🔍 How It Works
 
-Understanding the internals helps you appreciate the complexity MockDB handles for you.
+Understanding the internals helps you appreciate the complexity AutoDB handles for you.
 
 ### 1. Auto-Configuration
 
 The library uses **Spring Boot's auto-configuration** mechanism:
 ```java
-@ConditionalOnProperty(name = "mockdb.enabled", havingValue = "true")
-public class MockDBAutoConfiguration {
+@ConditionalOnProperty(name = "AutoDB.enabled", havingValue = "true")
+public class AutoDBAutoConfiguration {
     @Bean
     public ApplicationRunner databaseSeeder(EntityManager em, ...) {
         return args -> seedDatabase(em);
@@ -232,7 +232,7 @@ public class MockDBAutoConfiguration {
 }
 ```
 
-When `mockdb.enabled=true`, Spring automatically registers an `ApplicationRunner` bean that executes after the application context is fully initialized.
+When `AutoDB.enabled=true`, Spring automatically registers an `ApplicationRunner` bean that executes after the application context is fully initialized.
 
 ### 2. Entity Discovery
 
@@ -326,7 +326,7 @@ All operations occur within a **single transaction** to ensure:
 
 ### ❌ DON'T
 
-- **Never enable in production**: Set `mockdb.enabled=false` for prod profiles
+- **Never enable in production**: Set `AutoDB.enabled=false` for prod profiles
 - **Don't rely on seeded data for tests**: Use `@Sql` scripts or test containers for deterministic test data
 - **Don't seed sensitive entities**: Exclude entities like `User` credentials using custom configuration if needed
 
@@ -337,7 +337,7 @@ This project is licensed under the MIT License - see below for details:
 ```
 MIT License
 
-Copyright (c) 2025 MockDB Contributors
+Copyright (c) 2025 AutoDB Contributors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
